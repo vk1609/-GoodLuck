@@ -1,0 +1,8 @@
+
+
+git status   // ==>  for checking git status
+git add .  // for add the changes in local 
+git commit  -m"First commit"  // commiting the added changes to local repo
+git remote add origin <repo url> // link the local repo with origin github global repo    if executing this line you get error as already exist then go with {    git remote rm origin   }
+git push -u origin master.  /// uploading the values in github global repo.
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+
+</head>
+
+<body>
+    <input type="text" placeholder="Enter the value" required id="value" size="50px">
+    <button type="submit" onclick="play2()"> queen</button>
+    <p id="value"></p>
+</body>
+
+<script>
+    var queen = {
+        position: {
+            x: 4,
+            y: 4
+        }
+    };
+
+    function move(num, direction) {
+        let temp;
+        switch (direction) {
+            case "E":
+                temp = queen.position.y + num;
+                if (temp < 8 && temp < 0) {
+                    console.log("outside boundary E");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.y = temp;
+                }
+                break;
+            case "S":
+                temp = queen.position.x + num;
+                if (temp < 8 && temp < 0) {
+                    console.log("outside boundary S");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.x = temp;
+                }
+                break;
+            case "W":
+                temp = queen.position.y - num;
+                if (temp < 8 && temp < 0) {
+                    console.log("outside boundary W");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.y = temp;
+                }
+                break;
+            case "N":
+                temp = queen.position.X - num;
+                if (temp < 8 && temp < 0) {
+                    console.log("outside boundary N");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.X = temp;
+                }
+                break;
+            case "NE":
+                tempx = queen.position.x - num;
+                tempy = queen.position.y + num;
+                if ((tempx < 8 && tempx < 0) || (tempy < 8 && tempy < 0)) {
+                    console.log("outside boundary NE");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.x = tempx;
+                    queen.position.y = tempy;
+                }
+                break;
+            case "NW":
+                tempx = queen.position.x - num;
+                tempy = queen.position.y - num;
+                if ((tempx < 8 && tempx < 0) || (tempy < 8 && tempy < 0)) {
+                    console.log("outside boundary NW");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.x = tempx;
+                    queen.position.y = tempy;
+                }
+                break;
+            case "SE":
+                tempx = queen.position.x + num;
+                tempy = queen.position.y + num;
+                if ((tempx < 8 && tempx < 0) || (tempy < 8 && tempy < 0)) {
+                    console.log("outside boundary SE");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.x = tempx;
+                    queen.position.y = tempy;
+                }
+                break;
+            case "SW":
+                tempx = queen.position.x + num;
+                tempy = queen.position.y - num;
+                if ((tempx < 8 && tempx < 0) || (tempy < 8 && tempy < 0)) {
+                    console.log("outside boundary NW");
+                    document.write("outside boundary");
+                } else {
+                    queen.position.x = tempx;
+                    queen.position.y = tempy;
+                }
+                break;
+
+            default:
+                document.write("invalid input")
+                break;
+        }
+    }
+
+    function play2() {
+        var a = document.getElementById("value").value;
+        var value = a.split(" ");
+        value.forEach((e) => {
+            let num = Number(e.slice(e.length - 1));
+            let direction = e.slice(0, e.length - 1);
+            console.log(num, direction);
+            move(num, direction);
+        });
+        console.log("yours position -> " + board[queen.position.x][queen.position.y]);
+        document.getElementById("value").innerHTML =
+            "your position ->" + board[queen.position.x][queen.position.y];
+    }
+    var board = [
+        ["a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"],
+        ["a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7"],
+        ["a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6"],
+        ["a5", "b5", "c5", "d5", "e5", "f5", "g5", "h5"],
+        ["a4", "b4", "c4", "d4", "e4", "f4", "g4", "h4"],
+        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3"],
+        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"],
+        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"]
+    ];
+</script>
+
+</html>
